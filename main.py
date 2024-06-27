@@ -1,9 +1,14 @@
 import requests
 import send_email
 
+topic = "tesla"
+
 api_key = "380784bcf2a5470ab73588032b3dd772"
-url = "https://newsapi.org/v2/everything?q=tesla&from=2024-05-26&sort" \
-    "By=publishedAt&apiKey=380784bcf2a5470ab73588032b3dd772"
+url = "https://newsapi.org/v2/everything?" \
+      f"q={topic}&" \
+      "sortBy=publishedAt&" \
+      "apiKey=380784bcf2a5470ab73588032b3dd772&" \
+      "language=en"
 
 # Make request
 request = requests.get(url)
@@ -15,12 +20,13 @@ content = request.json()
 articles = []
 
 for article in content["articles"][0:5]:
-    articles_str = f"""\
+    article_str = f"""\
     Author: {article["author"]}
     Title: {article["title"]}
-    Description:{article["description"]}
+    Description: {article["description"]}
+    Read more: {article["url"]}
     """
-    articles.append(articles_str)
+    articles.append(article_str)
 
 articles_content = "\n\n".join(articles)
 
