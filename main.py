@@ -31,8 +31,7 @@ for article in content["articles"][0:5]:
 articles_content = "\n\n".join(articles)
 
 message = f"""\
-Subject: News from api 
-    
+Subject: News from api     
     
 Content: {articles_content}
 """
