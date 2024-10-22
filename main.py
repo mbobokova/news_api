@@ -1,7 +1,10 @@
 import requests
 import send_email
 
-topic = "tesla"
+topic = "NASA"
+
+
+# https://newsapi.org/v2/everything?q=NASA&sortBy=publishedAt&apiKey=380784bcf2a5470ab73588032b3dd772&language=en
 
 api_key = "380784bcf2a5470ab73588032b3dd772"
 url = "https://newsapi.org/v2/everything?" \
